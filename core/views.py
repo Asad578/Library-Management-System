@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from django.views.decorators.http import require_http_methods
 from django.utils.decorators import method_decorator
+from .models import User
 
 
 class HomeView(TemplateView):
@@ -82,7 +83,6 @@ def signup_view(request):
         elif len(password1) < 8:
             messages.error(request, 'Password must be at least 8 characters long.')
         else:
-            from django.contrib.auth.models import User
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Username already exists.')
             elif User.objects.filter(email=email).exists():
