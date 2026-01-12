@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Library Management System{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="row g-0">
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header p-3">
+                    <h5 class="mb-0 text-white">
+                        <i class="bi bi-book"></i> Dashboard
+                    </h5>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="{% url 'core:dashboard' %}" class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a href="{% url 'core:books' %}" class="nav-item {% if request.resolver_match.url_name == 'books' %}active{% endif %}">
+                        <i class="bi bi-book"></i> Books
+                    </a>
+                    <a href="{% url 'core:my_bookings' %}" class="nav-item {% if request.resolver_match.url_name == 'my_bookings' %}active{% endif %}">
+                        <i class="bi bi-calendar-check"></i> My Bookings
+                    </a>
+                    <a href="{% url 'core:pendings' %}" class="nav-item {% if request.resolver_match.url_name == 'pendings' %}active{% endif %}">
+                        <i class="bi bi-clock-history"></i> Pendings
+                    </a>
+                    <a href="{% url 'core:approved' %}" class="nav-item {% if request.resolver_match.url_name == 'approved' %}active{% endif %}">
+                        <i class="bi bi-check-circle"></i> Approved
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10 main-content-area">
+            <div class="content-header p-4 bg-white shadow-sm">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h3 class="mb-0">Welcome, {{ user.get_full_name|default:user.username }}!</h3>
+                        <p class="text-muted mb-0">Library Management Dashboard</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'core:logout' %}" class="btn btn-outline-brown">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-body p-4">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <i class="bi bi-book text-brown display-4"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-0">Total Books</h5>
+                                        <p class="text-muted mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <i class="bi bi-calendar-check text-brown display-4"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-0">My Bookings</h5>
+                                        <p class="text-muted mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <i class="bi bi-clock-history text-brown display-4"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="card-title mb-0">Pending</h5>
+                                        <p class="text-muted mb-0">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-info-circle text-brown"></i> Quick Actions
+                            </h5>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="{% url 'core:books' %}" class="btn btn-brown">
+                                    <i class="bi bi-search"></i> Browse Books
+                                </a>
+                                <a href="{% url 'core:my_bookings' %}" class="btn btn-outline-brown">
+                                    <i class="bi bi-list-ul"></i> View My Bookings
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

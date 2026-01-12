@@ -1,0 +1,27 @@
+<!-- Sidebar -->
+<div class="col-md-3 col-lg-2 sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header p-3">
+                    <h5 class="mb-0 text-white">
+                        <i class="bi bi-book"></i> Dashboard
+                    </h5>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="{% url 'core:dashboard' %}" class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a href="{% url 'core:books' %}" class="nav-item {% if request.resolver_match.url_name == 'books' %}active{% endif %}">
+                        <i class="bi bi-book"></i> Books
+                    </a>
+                    <a href="{% url 'core:my_bookings' %}" class="nav-item {% if request.resolver_match.url_name == 'my_bookings' %}active{% endif %}">
+                        <i class="bi bi-calendar-check"></i> My Bookings
+                    </a>
+                    <a href="{% url 'core:pendings' %}" class="nav-item {% if request.resolver_match.url_name == 'pendings' %}active{% endif %}">
+                        <i class="bi bi-clock-history"></i> Pendings
+                    </a>
+                    <a href="{% url 'core:approved' %}" class="nav-item {% if request.resolver_match.url_name == 'approved' %}active{% endif %}">
+                        <i class="bi bi-check-circle"></i> Approved
+                    </a>
+                </nav>
+            </div>
+        </div>

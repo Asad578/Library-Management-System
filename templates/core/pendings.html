@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Pending Bookings - Library Management System{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="row g-0">
+        {% include 'core/dashboard_sidebar.html' %}
+
+        <div class="col-md-9 col-lg-10 main-content-area">
+    <div class="content-header p-4 bg-white shadow-sm">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h3 class="mb-0"><i class="bi bi-clock-history text-brown"></i> Pending Bookings</h3>
+                <p class="text-muted mb-0">Bookings awaiting approval</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-body p-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                {% if pendings %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Request Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pending in pendings %}
+                                    <tr>
+                                        <td>{{ pending.book.title }}</td>
+                                        <td>{{ pending.request_date }}</td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-brown">View</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i> No pending bookings at the moment.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

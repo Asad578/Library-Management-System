@@ -1,0 +1,299 @@
+/* Custom Styles for Library Management System */
+
+:root {
+    --primary-color: #8B4513;
+    --primary-dark: #654321;
+    --primary-light: #A0522D;
+    --brown-gradient-start: #8B4513;
+    --brown-gradient-end: #A0522D;
+    --brown-light: #D2B48C;
+    --white: #FFFFFF;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid white;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f2bf7b 0%, #c48431 100%);
+    color: var(--primary-dark);
+    padding: 4rem 0;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.15) !important;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark) !important;
+    margin-top: auto;
+}
+
+/* Brown Theme Overrides */
+.bg-brown {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-brown-dark {
+    background-color: var(--primary-dark) !important;
+}
+
+.text-brown {
+    color: var(--primary-color) !important;
+}
+
+.btn-brown {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-brown:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.btn-outline-brown {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-brown:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Override Bootstrap primary colors with brown */
+.btn-primary,
+.btn-primary:focus {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
+}
+
+/* Features Section */
+.features-section .card {
+    height: 100%;
+}
+
+.features-section .card-body {
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Utilities */
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    min-height: calc(100vh - 200px);
+}
+
+.sidebar {
+    background-color: var(--primary-dark);
+    min-height: calc(100vh - 56px);
+    position: sticky;
+    top: 56px;
+}
+
+.sidebar-content {
+    height: 100%;
+}
+
+.sidebar-header {
+    background-color: var(--primary-color);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    border-top: 1px solid rgb(255, 255, 255);
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+}
+
+.nav-item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-left-color: var(--brown-light);
+    padding-left: 1.75rem;
+}
+
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border-left-color: var(--brown-light);
+    font-weight: 600;
+}
+
+.nav-item i {
+    margin-right: 0.5rem;
+    width: 20px;
+}
+
+.main-content-area {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 56px);
+}
+
+.content-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.content-body {
+    background-color: #f8f9fa;
+}
+
+/* Hide navbar on dashboard pages */
+.dashboard-container ~ .navbar {
+    display: none;
+}
+
+/* Responsive dashboard */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        min-height: auto;
+    }
+    
+    .main-content-area {
+        min-height: auto;
+    }
+}

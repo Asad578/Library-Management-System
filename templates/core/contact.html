@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Library Management System{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
+            <p class="lead mb-5">We'd love to hear from you. Get in touch with us using the form below or through our contact information.</p>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-geo-alt-fill text-brown display-4 mb-3"></i>
+                            <h5 class="card-title">Address</h5>
+                            <p class="card-text">123 Library Street<br>City, State 12345<br>Country</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-telephone-fill text-brown display-4 mb-3"></i>
+                            <h5 class="card-title">Phone</h5>
+                            <p class="card-text">+1 (555) 123-4567<br>Mon-Fri: 9am-5pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-envelope-fill text-brown display-4 mb-3"></i>
+                            <h5 class="card-title">Email</h5>
+                            <p class="card-text">info@librarysystem.com<br>support@librarysystem.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4">Send us a Message</h3>
+                    <form method="post" action="{% url 'core:contact' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-brown">
+                            <i class="bi bi-send"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
